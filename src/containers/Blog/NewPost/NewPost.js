@@ -18,12 +18,12 @@ postDataHandler = () =>{
         author: this.state.author,
         // submitted:this.state.submitted,
     }
-    Axios.post('https://jsonplaceholder.typicode.com/posts',data)
+    Axios.post('/posts',data)
     .then(res=>{
         console.log(res);
         // this.setState({submitted: true})
-        this.props.history.push('/posts');
-        // this.props.history.replace('/posts');
+        // this.props.history.push('/posts');
+        this.props.history.replace('/posts');
     });
 }
 componentDidMount(){
@@ -32,7 +32,7 @@ componentDidMount(){
     render () {
         let redirect=null;
         if(this.state.submitted){
-        redirect=<Redirect to='/posts' />;
+        redirect=<Redirect to="/posts" />;
         }
         return (
             <div className="NewPost">
